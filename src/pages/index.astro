@@ -43,7 +43,7 @@ import "../styles/global.css";
             </a>
             <a
               href="#stories"
-              class="px-6 py-3 border border-primary text-primary font-medium rounded-lg hover:bg-primary hover:bg-opacity-5 transition"
+              class="px-6 py-3 border border-primary text-primary font-medium rounded-lg hover:bg-primary-light hover:bg-opacity-10 transition"
             >
               Explore Stories
             </a>
@@ -138,23 +138,23 @@ import "../styles/global.css";
               </h4>
               <div class="space-y-3">
                 <div
-                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary hover:bg-opacity-5 transition"
+                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary-light hover:bg-opacity-5 transition"
                 >
                   A) Immediately buy those shoes you've been eyeing for weeks
                 </div>
                 <div
-                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary hover:bg-opacity-5 transition"
+                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary-light hover:bg-opacity-5 transition"
                 >
                   B) Pay some bills and spend the rest without much thought
                 </div>
                 <div
-                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary hover:bg-opacity-5 transition"
+                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary-light hover:bg-opacity-5 transition"
                 >
                   C) Transfer a set amount to savings, then handle bills and
                   other expenses
                 </div>
                 <div
-                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary hover:bg-opacity-5 transition"
+                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary-light hover:bg-opacity-5 transition"
                 >
                   D) Follow your established budget with allocated percentages
                   for savings, bills, fun money, and investments
@@ -363,8 +363,8 @@ import "../styles/global.css";
             allOptions.forEach((opt) => {
               opt.classList.remove(
                 "border-primary",
-                "bg-primary",
-                "bg-opacity-5"
+                "bg-primary-light",
+                "bg-opacity-10"
               );
               opt.classList.add("border-border");
             });
@@ -373,8 +373,8 @@ import "../styles/global.css";
             option.classList.remove("border-border");
             option.classList.add(
               "border-primary",
-              "bg-primary",
-              "bg-opacity-5"
+              "bg-primary-light",
+              "bg-opacity-10"
             );
           });
         });

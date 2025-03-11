@@ -3,15 +3,15 @@
 
 @theme {
   /* Main brand colors */
-  --color-primary: #4A506A; /* Indigo - energetic yet professional */
+  --color-primary: #4F46E5; /* Indigo - energetic yet professional */
   --color-primary-light: #818CF8;
   --color-primary-dark: #4338CA;
   
-  --color-secondary: #AEC5EB; /* Emerald - growth and progress */
+  --color-secondary: #10B981; /* Emerald - growth and progress */
   --color-secondary-light: #34D399;
   --color-secondary-dark: #059669;
 
-  --color-accent: #F9DEC9; /* Amber - warmth and confidence */
+  --color-accent: #F59E0B; /* Amber - warmth and confidence */
   --color-accent-light: #FBBF24;
   --color-accent-dark: #D97706;
 
@@ -107,4 +107,17 @@ body {
 .bg-accent-light {
   background-color: var(--color-accent-light);
   opacity: 0.1;
+}
+
+/* Hover state backgrounds */
+.hover-bg-primary {
+  background-color: rgba(79, 70, 229, 0.1);
+}
+
+.hover-bg-secondary {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.hover-bg-accent {
+  background-color: rgba(245, 158, 11, 0.1);
 }
