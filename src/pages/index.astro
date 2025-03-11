@@ -30,6 +30,9 @@ import "../styles/global.css";
             <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
               Navigate Adulting Without The Pressure
             </h1>
+            <div class="text-2xl text-secondary mt-8">
+              Figuring it out together, one mistake at a time.
+            </div>
             <p class="text-xl text-gray-600 mb-8">
               You don't have to have it all figured out right now. Join a
               community of young adults who are also figuring out this whole
@@ -53,19 +56,384 @@ import "../styles/global.css";
 
           <!-- Hero Graphic Container -->
           <div
-            class="bg-primary-light bg-opacity-10 rounded-xl p-4 flex items-center justify-center"
+            class="bg-primary-light bg-opacity-10 rounded-xl p-6 flex items-center justify-center"
           >
-            <div
-              class="aspect-square w-full max-w-md rounded-lg flex items-center justify-center border-2 border-dashed border-primary"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 800 800"
+              class="w-full h-auto"
             >
-              <p class="text-gray-500 text-center">
-                <img
-                  src="/images/hero.webp"
-                  alt="Hero Graphic"
-                  class="w-full h-auto"
-                />
-              </p>
-            </div>
+              <!-- Background -->
+              <rect width="800" height="800" fill="#F9FAFB"></rect>
+
+              <!-- Decorative backdrop elements -->
+              <circle
+                cx="200"
+                cy="400"
+                r="300"
+                fill="#4F46E5"
+                fill-opacity="0.05"></circle>
+              <circle
+                cx="650"
+                cy="200"
+                r="150"
+                fill="#F59E0B"
+                fill-opacity="0.08"></circle>
+              <circle
+                cx="600"
+                cy="600"
+                r="180"
+                fill="#10B981"
+                fill-opacity="0.07"></circle>
+
+              <!-- Central platform - represents adulthood stage -->
+              <rect
+                x="150"
+                y="500"
+                width="500"
+                height="30"
+                rx="10"
+                fill="#4F46E5"
+                fill-opacity="0.2"></rect>
+              <rect
+                x="150"
+                y="500"
+                width="500"
+                height="10"
+                rx="5"
+                fill="#4F46E5"
+                fill-opacity="0.3"></rect>
+
+              <!-- Steps leading up to adulthood - different levels of "adulting" -->
+              <rect
+                x="250"
+                y="530"
+                width="300"
+                height="20"
+                rx="5"
+                fill="#4F46E5"
+                fill-opacity="0.15"></rect>
+              <rect
+                x="270"
+                y="550"
+                width="260"
+                height="20"
+                rx="5"
+                fill="#4F46E5"
+                fill-opacity="0.1"></rect>
+              <rect
+                x="290"
+                y="570"
+                width="220"
+                height="20"
+                rx="5"
+                fill="#4F46E5"
+                fill-opacity="0.05"></rect>
+
+              <!-- Central character - young adult -->
+              <g transform="translate(400, 450)">
+                <!-- Body -->
+                <rect
+                  x="-30"
+                  y="-90"
+                  width="60"
+                  height="90"
+                  rx="20"
+                  fill="#4F46E5"></rect>
+
+                <!-- Head -->
+                <circle cx="0" cy="-110" r="30" fill="#FFD6B1"></circle>
+
+                <!-- Eyes -->
+                <circle cx="-10" cy="-115" r="3" fill="#333"></circle>
+                <circle cx="10" cy="-115" r="3" fill="#333"></circle>
+
+                <!-- Smile -->
+                <path
+                  d="M-10 -105 Q0 -95 10 -105"
+                  fill="none"
+                  stroke="#333"
+                  stroke-width="2"></path>
+
+                <!-- Arms -->
+                <rect
+                  x="-55"
+                  y="-80"
+                  width="25"
+                  height="8"
+                  rx="4"
+                  fill="#FFD6B1"
+                  transform="rotate(-30 -55 -80)"></rect>
+                <rect
+                  x="30"
+                  y="-80"
+                  width="25"
+                  height="8"
+                  rx="4"
+                  fill="#FFD6B1"
+                  transform="rotate(30 30 -80)"></rect>
+
+                <!-- Legs -->
+                <rect x="-25" y="0" width="10" height="50" rx="5" fill="#333"
+                ></rect>
+                <rect x="15" y="0" width="10" height="50" rx="5" fill="#333"
+                ></rect>
+
+                <!-- Feet -->
+                <rect x="-32" y="48" width="20" height="8" rx="4" fill="#222"
+                ></rect>
+                <rect x="12" y="48" width="20" height="8" rx="4" fill="#222"
+                ></rect>
+              </g>
+
+              <!-- Left character - slightly struggling with adulthood -->
+              <g transform="translate(250, 480)">
+                <!-- Body -->
+                <rect
+                  x="-25"
+                  y="-70"
+                  width="50"
+                  height="70"
+                  rx="15"
+                  fill="#F59E0B"></rect>
+
+                <!-- Head -->
+                <circle cx="0" cy="-90" r="25" fill="#FFD6B1"></circle>
+
+                <!-- Eyes -->
+                <circle cx="-8" cy="-95" r="2.5" fill="#333"></circle>
+                <circle cx="8" cy="-95" r="2.5" fill="#333"></circle>
+
+                <!-- Uncertain expression -->
+                <path
+                  d="M-8 -85 Q0 -87 8 -85"
+                  fill="none"
+                  stroke="#333"
+                  stroke-width="1.5"></path>
+
+                <!-- Arms with box (adulting task) -->
+                <rect
+                  x="-45"
+                  y="-60"
+                  width="20"
+                  height="6"
+                  rx="3"
+                  fill="#FFD6B1"
+                  transform="rotate(-30 -45 -60)"></rect>
+                <rect
+                  x="25"
+                  y="-60"
+                  width="20"
+                  height="6"
+                  rx="3"
+                  fill="#FFD6B1"
+                  transform="rotate(30 25 -60)"></rect>
+                <rect
+                  x="-25"
+                  y="-40"
+                  width="50"
+                  height="30"
+                  rx="2"
+                  fill="#10B981"
+                  fill-opacity="0.5"></rect>
+
+                <!-- Legs -->
+                <rect x="-20" y="0" width="8" height="40" rx="4" fill="#333"
+                ></rect>
+                <rect x="12" y="0" width="8" height="40" rx="4" fill="#333"
+                ></rect>
+
+                <!-- Feet -->
+                <rect x="-25" y="38" width="15" height="6" rx="3" fill="#222"
+                ></rect>
+                <rect x="10" y="38" width="15" height="6" rx="3" fill="#222"
+                ></rect>
+              </g>
+
+              <!-- Right character - more confident in adulthood -->
+              <g transform="translate(550, 460)">
+                <!-- Body -->
+                <rect
+                  x="-25"
+                  y="-70"
+                  width="50"
+                  height="70"
+                  rx="15"
+                  fill="#10B981"></rect>
+
+                <!-- Head -->
+                <circle cx="0" cy="-90" r="25" fill="#FFD6B1"></circle>
+
+                <!-- Eyes -->
+                <circle cx="-8" cy="-95" r="2.5" fill="#333"></circle>
+                <circle cx="8" cy="-95" r="2.5" fill="#333"></circle>
+
+                <!-- Confident smile -->
+                <path
+                  d="M-8 -83 Q0 -78 8 -83"
+                  fill="none"
+                  stroke="#333"
+                  stroke-width="1.5"></path>
+
+                <!-- Arms with thumbs up -->
+                <rect
+                  x="-35"
+                  y="-70"
+                  width="20"
+                  height="6"
+                  rx="3"
+                  fill="#FFD6B1"
+                  transform="rotate(-20 -35 -70)"></rect>
+                <rect
+                  x="15"
+                  y="-65"
+                  width="15"
+                  height="6"
+                  rx="3"
+                  fill="#FFD6B1"
+                  transform="rotate(50 15 -65)"></rect>
+                <rect
+                  x="28"
+                  y="-70"
+                  width="10"
+                  height="6"
+                  rx="3"
+                  fill="#FFD6B1"
+                  transform="rotate(0 28 -70)"></rect>
+
+                <!-- Legs -->
+                <rect x="-20" y="0" width="8" height="40" rx="4" fill="#333"
+                ></rect>
+                <rect x="12" y="0" width="8" height="40" rx="4" fill="#333"
+                ></rect>
+
+                <!-- Feet -->
+                <rect x="-25" y="38" width="15" height="6" rx="3" fill="#222"
+                ></rect>
+                <rect x="10" y="38" width="15" height="6" rx="3" fill="#222"
+                ></rect>
+              </g>
+
+              <!-- Adulting icons floating above -->
+
+              <!-- Financial icon -->
+              <g transform="translate(300, 280)">
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="40"
+                  fill="#F9FAFB"
+                  stroke="#4F46E5"
+                  stroke-width="2"></circle>
+                <text
+                  x="0"
+                  y="0"
+                  font-family="Arial"
+                  font-size="40"
+                  fill="#4F46E5"
+                  text-anchor="middle"
+                  dominant-baseline="middle">$</text
+                >
+              </g>
+
+              <!-- Home icon -->
+              <g transform="translate(400, 230)">
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="40"
+                  fill="#F9FAFB"
+                  stroke="#10B981"
+                  stroke-width="2"></circle>
+                <path
+                  d="M-20 0 L0 -20 L20 0 L20 20 L-20 20 Z"
+                  fill="none"
+                  stroke="#10B981"
+                  stroke-width="2"></path>
+                <rect
+                  x="-5"
+                  y="5"
+                  width="10"
+                  height="15"
+                  fill="none"
+                  stroke="#10B981"
+                  stroke-width="2"></rect>
+              </g>
+
+              <!-- Career icon -->
+              <g transform="translate(500, 280)">
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="40"
+                  fill="#F9FAFB"
+                  stroke="#F59E0B"
+                  stroke-width="2"></circle>
+                <rect
+                  x="-15"
+                  y="-15"
+                  width="30"
+                  height="35"
+                  fill="none"
+                  stroke="#F59E0B"
+                  stroke-width="2"
+                  rx="2"></rect>
+                <line
+                  x1="-10"
+                  y1="-5"
+                  x2="10"
+                  y2="-5"
+                  stroke="#F59E0B"
+                  stroke-width="2"></line>
+                <line
+                  x1="-10"
+                  y1="5"
+                  x2="10"
+                  y2="5"
+                  stroke="#F59E0B"
+                  stroke-width="2"></line>
+                <line
+                  x1="-10"
+                  y1="15"
+                  x2="10"
+                  y2="15"
+                  stroke="#F59E0B"
+                  stroke-width="2"></line>
+              </g>
+
+              <!-- Connection lines between characters (community aspect) -->
+              <line
+                x1="270"
+                y1="400"
+                x2="380"
+                y2="400"
+                stroke="#4F46E5"
+                stroke-width="2"
+                stroke-opacity="0.3"
+                stroke-dasharray="5,5"></line>
+              <line
+                x1="420"
+                y1="400"
+                x2="530"
+                y2="400"
+                stroke="#4F46E5"
+                stroke-width="2"
+                stroke-opacity="0.3"
+                stroke-dasharray="5,5"></line>
+
+              <!-- Progress path arrow -->
+              <path
+                d="M200 350 Q400 280 600 350"
+                fill="none"
+                stroke="#10B981"
+                stroke-width="3"
+                stroke-opacity="0.4"
+                stroke-dasharray="10,10"></path>
+              <polygon
+                points="590,350 600,345 595,360"
+                fill="#10B981"
+                fill-opacity="0.6"></polygon>
+            </svg>
           </div>
         </div>
       </div>
@@ -74,7 +442,7 @@ import "../styles/global.css";
     <section id="about" class="py-20 bg-white">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
-          Why Adultish Exists
+          Why Grownish?
         </h2>
         <p class="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-16">
           Being an adult doesn't come with a manual. We're building the resource
