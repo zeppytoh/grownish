@@ -1,11 +1,383 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import Header from "../components/Header.astro";
+import "../styles/global.css";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grownish | Navigate Adulting Without the Pressure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="Helping young adults navigate life's challenges with confidence and community."
+    />
+  </head>
+  <body class="bg-background text-gray-900 font-['Poppins']">
+    <Header activeLink="home" />
+
+    <section class="py-20 md:py-32">
+      <div class="container mx-auto px-4">
+        <div class="max-w-2xl">
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            Navigate Adulting Without The Pressure
+          </h1>
+          <p class="text-xl text-gray-600 mb-8">
+            You don't have to have it all figured out right now. Join a
+            community of young adults who are also figuring out this whole
+            "grown-up" thing.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="/quiz"
+              class="px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition"
+            >
+              Take The Adulting Quiz
+            </a>
+            <a
+              href="#stories"
+              class="px-6 py-3 border border-primary text-primary font-medium rounded-lg hover:bg-primary hover:bg-opacity-5 transition"
+            >
+              Explore Stories
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+          Why Adultish Exists
+        </h2>
+        <p class="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-16">
+          Being an adult doesn't come with a manual. We're building the resource
+          we wish we had when we started our adulting journey.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition hover:translate-y-[-5px]"
+          >
+            <div
+              class="w-16 h-16 bg-indigo-100 text-indigo-600 flex items-center justify-center rounded-full text-2xl mb-6"
+            >
+              🛡️
+            </div>
+            <h3 class="text-xl font-semibold mb-4">No Pressure Zone</h3>
+            <p class="text-gray-600">
+              Learn at your own pace without judgment. Everyone's adulting
+              journey looks different, and that's perfectly okay.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition hover:translate-y-[-5px]"
+          >
+            <div
+              class="w-16 h-16 bg-indigo-100 text-indigo-600 flex items-center justify-center rounded-full text-2xl mb-6"
+            >
+              👥
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Find Your Tribe</h3>
+            <p class="text-gray-600">
+              Connect with a community of fellow adulting works-in-progress.
+              You're not alone in figuring this out.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition hover:translate-y-[-5px]"
+          >
+            <div
+              class="w-16 h-16 bg-indigo-100 text-indigo-600 flex items-center justify-center rounded-full text-2xl mb-6"
+            >
+              💪
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Build Real Confidence</h3>
+            <p class="text-gray-600">
+              Transform anxiety into capability. Every adulting challenge you
+              overcome builds real-world confidence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz" class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+          What's Your Adulting Score?
+        </h2>
+        <p class="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-12">
+          Take our quiz to discover your adulting style, strengths, and
+          opportunities to level up. No judgment here - we're all figuring it
+          out together!
+        </p>
+
+        <div class="max-w-3xl mx-auto bg-surface rounded-xl shadow-md p-8">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-semibold mb-3">Start The Quiz</h3>
+            <p class="text-gray-600">
+              Answer 15 quick questions to see where you stand in your adulting
+              journey.
+            </p>
+          </div>
+
+          <div>
+            <div class="mb-8">
+              <h4 class="text-lg font-medium mb-4">
+                1. Your paycheck just hit your account. Your first move is to:
+              </h4>
+              <div class="space-y-3">
+                <div
+                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary hover:bg-opacity-5 transition"
+                >
+                  A) Immediately buy those shoes you've been eyeing for weeks
+                </div>
+                <div
+                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary hover:bg-opacity-5 transition"
+                >
+                  B) Pay some bills and spend the rest without much thought
+                </div>
+                <div
+                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary hover:bg-opacity-5 transition"
+                >
+                  C) Transfer a set amount to savings, then handle bills and
+                  other expenses
+                </div>
+                <div
+                  class="border border-border rounded-lg p-4 cursor-pointer hover:border-primary hover:bg-primary hover:bg-opacity-5 transition"
+                >
+                  D) Follow your established budget with allocated percentages
+                  for savings, bills, fun money, and investments
+                </div>
+              </div>
+            </div>
+            <a
+              href="/quiz"
+              class="block w-full bg-primary text-white text-center font-medium py-3 rounded-lg hover:bg-primary-dark transition"
+            >
+              Continue Quiz & See Results
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories" class="py-20 bg-surface">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+          Real Adulting Stories
+        </h2>
+        <p class="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-16">
+          Honest stories from people just like you who are navigating the ups
+          and downs of adult life.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-surface rounded-xl p-6 shadow-md">
+            <p class="text-gray-600 italic mb-6">
+              "I used to panic every time I needed to call about my internet
+              bill. Now I handle those calls like a pro. Small win, but it feels
+              huge!"
+            </p>
+            <div class="flex items-center gap-4">
+              <img
+                src="/api/placeholder/50/50"
+                alt="Kenta"
+                class="w-12 h-12 rounded-full"
+              />
+              <div>
+                <div class="font-semibold">Kenta, 23</div>
+                <div class="text-sm text-gray-500">Tokyo</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-surface rounded-xl p-6 shadow-md">
+            <p class="text-gray-600 italic mb-6">
+              "Finding this community helped me realize I wasn't behind or
+              failing at adulting. We're all just figuring it out one step at a
+              time."
+            </p>
+            <div class="flex items-center gap-4">
+              <img
+                src="/api/placeholder/50/50"
+                alt="Olivia"
+                class="w-12 h-12 rounded-full"
+              />
+              <div>
+                <div class="font-semibold">Olivia, 25</div>
+                <div class="text-sm text-gray-500">Melbourne</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-surface rounded-xl p-6 shadow-md">
+            <p class="text-gray-600 italic mb-6">
+              "I went from eating takeaway every night to meal prepping weekly.
+              My wallet and body both feel better - and I actually enjoy cooking
+              now!"
+            </p>
+            <div class="flex items-center gap-4">
+              <img
+                src="/api/placeholder/50/50"
+                alt="James"
+                class="w-12 h-12 rounded-full"
+              />
+              <div>
+                <div class="font-semibold">James, 21</div>
+                <div class="text-sm text-gray-500">Auckland</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="community" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="bg-primary rounded-xl p-8 md:p-12 text-center text-white">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Join Our Tribe of Adulting Works-in-Progress
+          </h2>
+          <p class="text-xl max-w-3xl mx-auto mb-8">
+            Connect with others who are navigating adulthood one day at a time.
+            Share tips, celebrate wins (big and small), and know you're not
+            alone in this journey.
+          </p>
+          <a
+            href="#"
+            class="inline-block px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-100 transition"
+          >
+            Check Out The Tribe
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-surface py-12 md:py-16">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 md:gap-12 mb-8">
+          <div>
+            <div class="text-2xl font-bold text-primary mb-4">Grownish</div>
+            <p class="text-gray-600">
+              Helping young adults navigate life's challenges with confidence
+              and community.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Content</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >Latest Stories</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >Adulting Tips</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >Financial Basics</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >Wellness</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Community</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >Join The Tribe</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >Events</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >Discussion Forums</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >Submit Your Story</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Connect</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >Instagram</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >TikTok</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >Contact Us</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition"
+                  >About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="text-center text-gray-500 text-sm pt-8 border-t border-border"
+        >
+          &copy; 2025 Grownish. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple script to handle quiz option selection
+      document
+        .querySelectorAll(".border.border-border.rounded-lg")
+        .forEach((option) => {
+          option.addEventListener("click", () => {
+            // Remove selected class from all options in this question group
+            const allOptions = option.parentElement.querySelectorAll(
+              ".border.border-border.rounded-lg"
+            );
+            allOptions.forEach((opt) => {
+              opt.classList.remove(
+                "border-primary",
+                "bg-primary",
+                "bg-opacity-5"
+              );
+              opt.classList.add("border-border");
+            });
+
+            // Add selected class to clicked option
+            option.classList.remove("border-border");
+            option.classList.add(
+              "border-primary",
+              "bg-primary",
+              "bg-opacity-5"
+            );
+          });
+        });
+    </script>
+  </body>
+</html>

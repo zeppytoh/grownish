@@ -1,0 +1,122 @@
+---
+// src/components/Header.astro
+import "../styles/global.css";
+
+interface Props {
+  activeLink?: string;
+}
+
+const { activeLink = "home" } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 bg-white border-b border-gray-200">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="/" class="text-2xl font-bold text-primary">Grownish</a>
+
+    <nav class="hidden md:flex space-x-8">
+      <a
+        href="/"
+        class={`font-medium transition ${activeLink === "home" ? "text-primary" : "text-gray-600 hover:text-primary"}`}
+      >
+        Home
+      </a>
+      <a
+        href="#about"
+        class={`font-medium transition ${activeLink === "about" ? "text-primary" : "text-gray-600 hover:text-primary"}`}
+      >
+        About
+      </a>
+      <a
+        href="#quiz"
+        class={`font-medium transition ${activeLink === "quiz" ? "text-primary" : "text-gray-600 hover:text-primary"}`}
+      >
+        Quiz
+      </a>
+      <a
+        href="#stories"
+        class={`font-medium transition ${activeLink === "stories" ? "text-primary" : "text-gray-600 hover:text-primary"}`}
+      >
+        Stories
+      </a>
+      <a
+        href="#community"
+        class={`font-medium transition ${activeLink === "community" ? "text-primary" : "text-gray-600 hover:text-primary"}`}
+      >
+        Community
+      </a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a
+        href="#community"
+        class="hidden md:block px-4 py-2 bg-primary text-white font-medium rounded-lg hover:bg-secondary transition"
+      >
+        Join The Tribe
+      </a>
+
+      <!-- Mobile menu button -->
+      <button
+        class="md:hidden flex items-center p-2 rounded-lg text-gray-500 hover:bg-gray-100"
+        id="mobile-menu-button"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu, hidden by default -->
+  <div
+    class="md:hidden hidden bg-white border-b border-gray-200 py-2"
+    id="mobile-menu"
+  >
+    <div class="container mx-auto px-4 flex flex-col space-y-3">
+      <a href="/" class="py-2 font-medium text-gray-600 hover:text-primary"
+        >Home</a
+      >
+      <a href="#about" class="py-2 font-medium text-gray-600 hover:text-primary"
+        >About</a
+      >
+      <a href="#quiz" class="py-2 font-medium text-gray-600 hover:text-primary"
+        >Quiz</a
+      >
+      <a
+        href="#stories"
+        class="py-2 font-medium text-gray-600 hover:text-primary">Stories</a
+      >
+      <a
+        href="#community"
+        class="py-2 font-medium text-gray-600 hover:text-primary">Community</a
+      >
+      <a
+        href="#community"
+        class="block w-full py-2 px-4 bg-primary text-white font-medium rounded-lg text-center hover:bg-secondary transition"
+      >
+        Join The Tribe
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Handle mobile menu toggle
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+</script>

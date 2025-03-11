@@ -1,0 +1,555 @@
+---
+// src/components/AdultingQuiz.astro
+import "../styles/global.css";
+
+// Quiz data structure
+const quizQuestions = [
+  {
+    category: "Financial Fluency",
+    questions: [
+      {
+        id: "q1",
+        text: "Your paycheck just hit your account. Your first move is to:",
+        options: [
+          {
+            id: "q1a",
+            text: "Immediately buy those shoes you've been eyeing for weeks",
+            value: 1,
+          },
+          {
+            id: "q1b",
+            text: "Pay some bills and spend the rest without much thought",
+            value: 2,
+          },
+          {
+            id: "q1c",
+            text: "Transfer a set amount to savings, then handle bills and other expenses",
+            value: 3,
+          },
+          {
+            id: "q1d",
+            text: "Follow your established budget with allocated percentages for savings, bills, fun money, and investments",
+            value: 4,
+          },
+        ],
+      },
+      {
+        id: "q2",
+        text: "Your approach to taxes could best be described as:",
+        options: [
+          {
+            id: "q2a",
+            text: '"Wait, I need to file taxes? Since when?"',
+            value: 1,
+          },
+          {
+            id: "q2b",
+            text: 'Panic-Googling "how to do taxes" in April and hoping for the best',
+            value: 2,
+          },
+          {
+            id: "q2c",
+            text: "Using a tax software and managing to file on time",
+            value: 3,
+          },
+          {
+            id: "q2d",
+            text: "Keeping organized records throughout the year and understanding deductions that apply to you",
+            value: 4,
+          },
+        ],
+      },
+      {
+        id: "q3",
+        text: "When it comes to emergency funds, you:",
+        options: [
+          {
+            id: "q3a",
+            text: "Live paycheck to paycheck with no emergency savings",
+            value: 1,
+          },
+          {
+            id: "q3b",
+            text: "Have a credit card you'd use for emergencies",
+            value: 2,
+          },
+          {
+            id: "q3c",
+            text: "Have saved about 1-3 months of expenses",
+            value: 3,
+          },
+          {
+            id: "q3d",
+            text: "Have a dedicated emergency fund covering 3-6+ months of expenses",
+            value: 4,
+          },
+        ],
+      },
+    ],
+  },
+  // Other categories would be defined here
+];
+
+// Define archetypes based on score ranges
+const archetypes = [
+  {
+    range: [0, 15],
+    title: "The Adulting Newcomer",
+    description:
+      "You're just getting started on your adulting journey, and that's perfectly okay! Everyone begins somewhere. Focus on building one skill at a time, and remember that even small progress counts.",
+  },
+  {
+    range: [16, 30],
+    title: "The Work-in-Progress Adult",
+    description:
+      "You've figured out some basics, but still have plenty of \"learning opportunities\" (aka mistakes waiting to happen). Keep up the momentum and don't be afraid to ask for help when you need it.",
+  },
+  {
+    range: [31, 45],
+    title: "The Mostly-Got-This Grown-Up",
+    description:
+      "You're handling most adult responsibilities well, with occasional moments of \"Wait, how do I do this again?\" You've built a solid foundation and can now focus on fine-tuning your adulting skills.",
+  },
+  {
+    range: [46, 60],
+    title: "The Seasoned Adult",
+    description:
+      "Impressive! You've mastered many aspects of adulting. Your friends probably come to you for advice. Consider sharing your wisdom with others who are still finding their footing.",
+  },
+];
+---
+
+<div class="bg-white rounded-xl shadow-md max-w-4xl mx-auto overflow-hidden">
+  <!-- Quiz Introduction -->
+  <div class="quiz-intro p-8 text-center" id="quiz-intro">
+    <h3 class="text-2xl font-semibold mb-4">What's Your Adulting Score?</h3>
+    <p class="text-gray-600 mb-8">
+      Everyone's talking about "adulting" these days, but how are you really
+      doing with the whole grown-up thing? Take our quiz to discover your
+      adulting style, strengths, and opportunities to level up. No judgment here
+      - we're all figuring it out together!
+    </p>
+    <button
+      id="start-quiz-btn"
+      class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition"
+    >
+      Start The Quiz
+    </button>
+  </div>
+
+  <!-- Quiz Content (Hidden initially) -->
+  <div id="quiz-content" class="hidden">
+    <!-- Progress Bar -->
+    <div class="px-8 pt-8">
+      <div class="mb-2 flex justify-between items-center">
+        <span class="text-sm font-medium text-gray-600">Your progress</span>
+        <span class="text-sm font-medium text-gray-600" id="progress-text"
+          >Question 1 of 15</span
+        >
+      </div>
+      <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div
+          id="progress-bar"
+          class="h-full bg-indigo-600 rounded-full"
+          style="width: 6.67%"
+        >
+        </div>
+      </div>
+    </div>
+
+    <!-- Questions Container -->
+    <div id="questions-container" class="p-8">
+      <!-- Questions will be inserted here by JavaScript -->
+      <div class="question active" data-question-id="q1">
+        <h4 class="text-xl font-medium mb-6">
+          1. Your paycheck just hit your account. Your first move is to:
+        </h4>
+        <div class="space-y-3">
+          <div
+            class="option border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-indigo-600 hover:bg-indigo-50 transition"
+            data-option-id="q1a"
+            data-value="1"
+          >
+            A) Immediately buy those shoes you've been eyeing for weeks
+          </div>
+          <div
+            class="option border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-indigo-600 hover:bg-indigo-50 transition"
+            data-option-id="q1b"
+            data-value="2"
+          >
+            B) Pay some bills and spend the rest without much thought
+          </div>
+          <div
+            class="option border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-indigo-600 hover:bg-indigo-50 transition"
+            data-option-id="q1c"
+            data-value="3"
+          >
+            C) Transfer a set amount to savings, then handle bills and other
+            expenses
+          </div>
+          <div
+            class="option border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-indigo-600 hover:bg-indigo-50 transition"
+            data-option-id="q1d"
+            data-value="4"
+          >
+            D) Follow your established budget with allocated percentages for
+            savings, bills, fun money, and investments
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="px-8 pb-8 flex justify-between">
+      <button
+        id="prev-btn"
+        class="px-6 py-3 border border-indigo-600 text-indigo-600 font-medium rounded-lg hover:bg-indigo-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled
+      >
+        Previous
+      </button>
+      <button
+        id="next-btn"
+        class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition"
+      >
+        Next
+      </button>
+      <button
+        id="submit-btn"
+        class="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition hidden"
+      >
+        See Results
+      </button>
+    </div>
+  </div>
+
+  <!-- Results (Hidden initially) -->
+  <div id="results-container" class="hidden">
+    <div class="p-8">
+      <h3 class="text-2xl font-semibold text-center mb-6">
+        Your Adulting Results
+      </h3>
+
+      <!-- Overall Score -->
+      <div class="bg-gray-100 rounded-xl p-6 mb-8">
+        <h4 class="text-xl font-semibold text-center mb-4">
+          Your Adulting Score: <span id="total-score">0</span>/60
+        </h4>
+        <div class="h-4 bg-gray-200 rounded-full overflow-hidden mb-2">
+          <div
+            id="score-meter"
+            class="h-full bg-indigo-600 rounded-full transition-all duration-1000"
+            style="width: 0%"
+          >
+          </div>
+        </div>
+
+        <!-- Archetype -->
+        <div class="mt-6">
+          <h4 class="text-lg font-semibold text-center mb-2">
+            You are: <span id="archetype-title">The Adulting Newcomer</span>
+          </h4>
+          <p id="archetype-description" class="text-gray-600 text-center">
+            You're just getting started on your adulting journey, and that's
+            perfectly okay! Everyone begins somewhere.
+          </p>
+        </div>
+      </div>
+
+      <!-- Category Breakdown -->
+      <div class="mb-8">
+        <h4 class="text-xl font-semibold mb-6">Your Adulting Breakdown</h4>
+        <div class="space-y-4">
+          <div class="category-score">
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Financial Fluency</span>
+              <span id="financial-score">0/12</span>
+            </div>
+            <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                id="financial-meter"
+                class="h-full bg-indigo-600 rounded-full transition-all duration-1000"
+                style="width: 0%"
+              >
+              </div>
+            </div>
+          </div>
+
+          <div class="category-score">
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Home Management</span>
+              <span id="home-score">0/12</span>
+            </div>
+            <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                id="home-meter"
+                class="h-full bg-indigo-600 rounded-full transition-all duration-1000"
+                style="width: 0%"
+              >
+              </div>
+            </div>
+          </div>
+
+          <div class="category-score">
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Health & Wellbeing</span>
+              <span id="health-score">0/12</span>
+            </div>
+            <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                id="health-meter"
+                class="h-full bg-indigo-600 rounded-full transition-all duration-1000"
+                style="width: 0%"
+              >
+              </div>
+            </div>
+          </div>
+
+          <div class="category-score">
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Professional Development</span>
+              <span id="professional-score">0/12</span>
+            </div>
+            <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                id="professional-meter"
+                class="h-full bg-indigo-600 rounded-full transition-all duration-1000"
+                style="width: 0%"
+              >
+              </div>
+            </div>
+          </div>
+
+          <div class="category-score">
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Relationships & Communication</span>
+              <span id="relationships-score">0/12</span>
+            </div>
+            <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                id="relationships-meter"
+                class="h-full bg-indigo-600 rounded-full transition-all duration-1000"
+                style="width: 0%"
+              >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strengths and Opportunities -->
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-indigo-50 p-6 rounded-xl">
+          <h4 class="text-lg font-semibold mb-3">Your Adulting Superpower</h4>
+          <p id="superpower-text" class="text-gray-600">
+            You have a natural ability to handle your finances wisely, which
+            puts you ahead of many of your peers.
+          </p>
+        </div>
+
+        <div class="bg-amber-50 p-6 rounded-xl">
+          <h4 class="text-lg font-semibold mb-3">Your Growth Opportunity</h4>
+          <p id="growth-text" class="text-gray-600">
+            Focus on developing more consistent habits around health and
+            wellbeing to support your long-term success.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-gray-100 p-6 rounded-xl text-center">
+        <h4 class="text-lg font-semibold mb-3">
+          Ready to level up your adulting skills?
+        </h4>
+        <p class="text-gray-600 mb-6">
+          Join our community of adulting works-in-progress to get personalized
+          content, connect with others on the same journey, and build your
+          confidence in adult life.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="#community"
+            class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition"
+          >
+            Join The Tribe
+          </a>
+          <button
+            class="px-6 py-3 border border-indigo-600 text-indigo-600 font-medium rounded-lg hover:bg-indigo-50 transition"
+          >
+            Share Your Results
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Quiz functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const startBtn = document.getElementById("start-quiz-btn");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const submitBtn = document.getElementById("submit-btn");
+
+    const quizIntro = document.getElementById("quiz-intro");
+    const quizContent = document.getElementById("quiz-content");
+    const resultsContainer = document.getElementById("results-container");
+
+    const progressBar = document.getElementById("progress-bar");
+    const progressText = document.getElementById("progress-text");
+
+    // Current question index
+    let currentQuestion = 1;
+    const totalQuestions = 15;
+
+    // User answers
+    const userAnswers = {};
+
+    // Start quiz
+    startBtn?.addEventListener("click", () => {
+      quizIntro.classList.add("hidden");
+      quizContent.classList.remove("hidden");
+      updateProgress();
+    });
+
+    // Previous question
+    prevBtn?.addEventListener("click", () => {
+      if (currentQuestion > 1) {
+        currentQuestion--;
+        updateQuestion();
+        updateProgress();
+      }
+    });
+
+    // Next question
+    nextBtn?.addEventListener("click", () => {
+      if (currentQuestion < totalQuestions) {
+        currentQuestion++;
+        updateQuestion();
+        updateProgress();
+      }
+    });
+
+    // Submit quiz
+    submitBtn?.addEventListener("click", () => {
+      quizContent.classList.add("hidden");
+      resultsContainer.classList.remove("hidden");
+      calculateResults();
+    });
+
+    // Handle option selection
+    document.querySelectorAll(".option").forEach((option) => {
+      option.addEventListener("click", () => {
+        const questionId = option.closest(".question").dataset.questionId;
+        const optionId = option.dataset.optionId;
+        const optionValue = parseInt(option.dataset.value);
+
+        // Clear previous selection
+        const allOptions = option
+          .closest(".question")
+          .querySelectorAll(".option");
+        allOptions.forEach((opt) => {
+          opt.classList.remove("border-indigo-600", "bg-indigo-50");
+          opt.classList.add("border-gray-200");
+        });
+
+        // Select current option
+        option.classList.remove("border-gray-200");
+        option.classList.add("border-indigo-600", "bg-indigo-50");
+
+        // Save answer
+        userAnswers[questionId] = {
+          optionId,
+          value: optionValue,
+        };
+      });
+    });
+
+    // Update question visibility
+    function updateQuestion() {
+      document.querySelectorAll(".question").forEach((question) => {
+        question.classList.remove("active");
+        question.classList.add("hidden");
+      });
+
+      const activeQuestion = document.querySelector(
+        `.question[data-question-id="q${currentQuestion}"]`
+      );
+      if (activeQuestion) {
+        activeQuestion.classList.remove("hidden");
+        activeQuestion.classList.add("active");
+      }
+
+      // Update buttons
+      prevBtn.disabled = currentQuestion === 1;
+      if (currentQuestion === totalQuestions) {
+        nextBtn.classList.add("hidden");
+        submitBtn.classList.remove("hidden");
+      } else {
+        nextBtn.classList.remove("hidden");
+        submitBtn.classList.add("hidden");
+      }
+    }
+
+    // Update progress bar and text
+    function updateProgress() {
+      const progressPercentage = ((currentQuestion - 1) / totalQuestions) * 100;
+      progressBar.style.width = `${progressPercentage}%`;
+      progressText.textContent = `Question ${currentQuestion} of ${totalQuestions}`;
+    }
+
+    // Calculate and display results
+    function calculateResults() {
+      // For demo purposes - would be calculated from actual answers
+      const totalScore = 42;
+      const financialScore = 9;
+      const homeScore = 7;
+      const healthScore = 8;
+      const professionalScore = 10;
+      const relationshipsScore = 8;
+
+      // Update score displays
+      document.getElementById("total-score").textContent = totalScore;
+      document.getElementById("score-meter").style.width =
+        `${(totalScore / 60) * 100}%`;
+
+      document.getElementById("financial-score").textContent =
+        `${financialScore}/12`;
+      document.getElementById("financial-meter").style.width =
+        `${(financialScore / 12) * 100}%`;
+
+      document.getElementById("home-score").textContent = `${homeScore}/12`;
+      document.getElementById("home-meter").style.width =
+        `${(homeScore / 12) * 100}%`;
+
+      document.getElementById("health-score").textContent = `${healthScore}/12`;
+      document.getElementById("health-meter").style.width =
+        `${(healthScore / 12) * 100}%`;
+
+      document.getElementById("professional-score").textContent =
+        `${professionalScore}/12`;
+      document.getElementById("professional-meter").style.width =
+        `${(professionalScore / 12) * 100}%`;
+
+      document.getElementById("relationships-score").textContent =
+        `${relationshipsScore}/12`;
+      document.getElementById("relationships-meter").style.width =
+        `${(relationshipsScore / 12) * 100}%`;
+
+      // Set archetype based on total score
+      document.getElementById("archetype-title").textContent =
+        "The Mostly-Got-This Grown-Up";
+      document.getElementById("archetype-description").textContent =
+        "You're handling most adult responsibilities well, with occasional moments of \"Wait, how do I do this again?\" You've built a solid foundation and can now focus on fine-tuning your adulting skills.";
+
+      // Set superpower (highest category)
+      document.getElementById("superpower-text").textContent =
+        "You excel at Professional Development. Your ability to navigate workplace challenges and career planning sets you apart from your peers.";
+
+      // Set growth opportunity (lowest category)
+      document.getElementById("growth-text").textContent =
+        "Consider focusing more attention on Home Management skills. Developing systems for household tasks could reduce your stress and create more time for the things you enjoy.";
+    }
+  });
+</script>
